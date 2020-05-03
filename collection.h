@@ -17,8 +17,7 @@ class Collection{
     std::vector <Album> album_collection = std::vector <Album>(quantity);
     std::vector <Movie> movie_collection = std::vector <Movie>(quantity);
 public:
-
-    Collection();
+    Collection(std::string = "Brak danych", int = 0, int = 0, int = 0);
     ~Collection();
 
     //GETTERS

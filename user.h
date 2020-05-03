@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 #include "collection.h"
 
@@ -13,7 +14,7 @@ class User{
     int created_collections;
     std::vector <Collection> user_collection = std::vector <Collection>(max_collections);
 public:
-    User(std::string = "Anon", std::string = "Anonim");
+    User(std::string = "Anon", std::string = "Anonim", int = 0);
     ~User();
 
     //GETTERS
@@ -26,8 +27,10 @@ public:
     //SETTERS
     void setName(std::string n) { name = n; };
     void setSurname(std::string s) { surname = s; };
-    void setCreatedCollections(int cc) { created_collections = cc; };
+    void setCreatedCollections(int cr_coll) { created_collections = cr_coll; };
 
+    //OVERLOADED OPERATORS
+    friend std::ostream & operator<<(std::ostream & output, User & u);
 };
 
 #endif // USER_H__

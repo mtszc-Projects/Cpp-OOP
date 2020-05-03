@@ -12,8 +12,9 @@ public:
     void manage();
 
     void add_collection();
-    void search_collection();
-    void update_collection();
+    void display_collection();
+    void display_category();
+    void change_collection_name();
     void delete_collection();
 
     void add_item();
