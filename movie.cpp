@@ -4,6 +4,11 @@
 Movie::Movie(std::string d, std:: string sw): Item("Film", "brak danych", "brak danych", 0, 0), director(d), script_writer(sw){
 }
 
+Movie::Movie(const Movie & movie) : Item(movie){
+    director = movie.director;
+    script_writer = movie.script_writer;
+}
+
 Movie::~Movie(){
 }
 
@@ -22,4 +27,12 @@ void Movie::write_data(){
     std::cout << "Podaj scenarzyste: ";
     getline(std::cin, script_writer);
     std::cout << std::endl;
+}
+
+Movie & Movie::operator=(const Movie & movie){
+	if(&movie == this) return *this;
+	Item::operator=(movie);
+    director = movie.director;
+    script_writer = movie.script_writer;
+    return *this;
 }

@@ -7,6 +7,7 @@ class Album : public Item{
     std::string  author;
 public:
     explicit Album(std::string = "Autor nieznany");
+    explicit Album(const Album & album);
     ~Album();
 
     //GETTERS
@@ -18,6 +19,9 @@ public:
     //METODS
     void write_data() override;
     void display_data() const override;
+
+    //OVERLOADED OPERATORS
+    Album & operator=(const Album & album);
 };
 
 #endif // ALBUM_H__

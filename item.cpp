@@ -5,6 +5,14 @@
 Item::Item(std::string it, std::string t, std::string g, int y, int p) : item_type(it), title(t), genre(g), year(y), price(p){
 }
 
+Item::Item(const Item & item){
+    item_type = item.item_type;
+    title = item.title;
+    genre = item.genre;
+    year = item.year;
+    price = item.price;
+}
+
 Item::~Item(){
 }
 
@@ -26,4 +34,14 @@ void Item::write_data(){
     std::cin >> year;
     std::cout << "Podaj cene: ";
     std::cin >> price;
+}
+
+Item & Item::operator=(const Item & item){
+	if(&item == this) return *this;
+    item_type = item.item_type;
+    title = item.title;
+    genre = item.genre;
+    year = item.year;
+    price = item.price;
+    return *this;
 }

@@ -7,6 +7,7 @@ class Book : public Item{
     std::string  author;
 public:
     explicit Book(std::string = "Autor nieznany");
+    explicit Book(const Book & book);
     ~Book();
 
     //GETTERS
@@ -18,6 +19,9 @@ public:
     //METODS
     void write_data() override;
     void display_data() const override;
+
+    //OVERLOADED OPERATORS
+    Book & operator=(const Book & book);
 };
 
 #endif // BOOK_H__

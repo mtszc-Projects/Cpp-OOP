@@ -8,6 +8,7 @@ class Movie : public Item{
     std::string script_writer;
 public:
     Movie(std::string = "Rezyser nieznany", std:: string = "Scenarzysta nieznany");
+    explicit Movie(const Movie & movie);
     ~Movie();
 
     //GETTERS
@@ -21,6 +22,9 @@ public:
     //METODS
     void write_data() override;
     void display_data() const override;
+
+    //OVERLOADED OPERATORS
+    Movie & operator=(const Movie & movie);
 };
 
 #endif // MOVIE_H__

@@ -11,8 +11,9 @@ protected:
     int  year;
     int  price;
 public:
-
+    //CONSTRUCTORS/DESTRUCTORS
     Item(std::string = "Brak danych", std::string = "Brak danych", std::string = "Brak danych", int = 0, int = 0);
+    explicit Item(const Item &item);
     ~Item();
 
     //GETTERS
@@ -31,7 +32,10 @@ public:
 
     //METODS
     virtual void write_data();
-    virtual void display_data() const ;
+    virtual void display_data() const;
+
+    //OVERLOADED OPERATORS
+    virtual Item & operator=(const Item & item);
 };
 
 #endif // ITEM_H__

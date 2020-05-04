@@ -15,6 +15,7 @@ class User{
     std::vector <Collection> user_collection = std::vector <Collection>(max_collections);
 public:
     User(std::string = "Anon", std::string = "Anonim", int = 0);
+    User(const User & user);
     ~User();
 
     //GETTERS
@@ -31,6 +32,7 @@ public:
 
     //OVERLOADED OPERATORS
     friend std::ostream & operator<<(std::ostream & output, User & u);
+    User & operator=(const User & user);
 };
 
 #endif // USER_H__

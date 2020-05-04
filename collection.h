@@ -12,12 +12,13 @@ class Collection{
     static const int quantity;
     int book_quantity;
     int album_quantity;
-    int movie_quntity;
+    int movie_quantity;
     std::vector <Book> book_collection = std::vector <Book>(quantity);
     std::vector <Album> album_collection = std::vector <Album>(quantity);
     std::vector <Movie> movie_collection = std::vector <Movie>(quantity);
 public:
     Collection(std::string = "Brak danych", int = 0, int = 0, int = 0);
+    Collection(const Collection & collection);
     ~Collection();
 
     //GETTERS
@@ -25,7 +26,7 @@ public:
     int getQuantity() const { return quantity; }
     int getBookQuantity() const { return book_quantity; };
     int getAlbumQuantity() const { return album_quantity; };
-    int getMovieQuantity() const { return movie_quntity; };
+    int getMovieQuantity() const { return movie_quantity; };
     std::vector <Book> &getBookCollection(){ return book_collection; };
     std::vector <Album> &getAlbumCollection(){ return album_collection; };
     std::vector <Movie> &getMovieCollection(){ return movie_collection; };
@@ -34,8 +35,10 @@ public:
     void  setName(std::string n) { name = n; };
     void  setBookQuantity(int bq) { book_quantity = bq; };
     void  setAlbumQuantity(int aq) { album_quantity = aq; };
-    void  setMovieQuantity(int mq) { movie_quntity = mq; };
+    void  setMovieQuantity(int mq) { movie_quantity = mq; };
 
+    //OVERLOADED OPERATORS
+    Collection & operator=(const Collection & collection);
 };
 
 #endif // COLLECTION_H__

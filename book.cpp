@@ -4,6 +4,10 @@
 Book::Book(std::string a): Item("Ksiazka", "brak danych", "brak danych", 0, 0), author(a){
 }
 
+Book::Book(const Book & book) : Item(book){
+    author = book.author;
+}
+
 Book::~Book(){
 }
 
@@ -19,4 +23,11 @@ void Book::write_data(){
     std::cin.get();
     getline(std::cin, author);
     std::cout << std::endl;
+}
+
+Book & Book::operator=(const Book & book){
+	if(&book == this) return *this;
+	Item::operator=(book);
+    author = book.author;
+    return *this;
 }

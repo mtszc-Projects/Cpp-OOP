@@ -4,6 +4,10 @@
 Album::Album(std::string a) : Item("Album", "brak danych", "brak danych", 0, 0), author(a){
 }
 
+Album::Album(const Album & album) : Item(album){
+    author = album.author;
+}
+
 Album::~Album(){
 }
 
@@ -19,4 +23,11 @@ void Album::write_data(){
     std::cin.get();
     getline(std::cin, author);
     std::cout << std::endl;
+}
+
+Album & Album::operator=(const Album & album){
+	if(&album == this) return *this;
+	Item::operator=(album);
+    author = album.author;
+    return *this;
 }
