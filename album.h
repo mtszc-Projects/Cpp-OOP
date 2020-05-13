@@ -5,16 +5,19 @@
 
 class Album : public Item{
     std::string  author;
+    int length;
 public:
-    explicit Album(std::string = "Autor nieznany");
+    Album(std::string = "Autor nieznany", int = 0);
     explicit Album(const Album & album);
     ~Album();
 
     //GETTERS
     std::string  getAuthor() const { return author; };
+    int getLength() const { return length; };
 
     //SETTERS
     void  setAuthor(std::string a) { author = a; };
+    void  setLength(int l) { length = l; };
 
     //METODS
     void write_data() override;

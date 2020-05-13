@@ -1,7 +1,7 @@
 #include "user.h"
 #include <iostream>
 
-const int User::max_collections = 2;
+const int User::max_collections = 3;
 
 User::User(std::string n, std::string s, int cc) : name(n), surname(s), created_collections(cc){
 }
