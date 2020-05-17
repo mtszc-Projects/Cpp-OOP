@@ -24,6 +24,7 @@ public:
     void statistics();
     void delete_item();
     void delete_collection();
+    void save_to_file();
 };
 
 #endif // COLLECTIONMANAGER_H__

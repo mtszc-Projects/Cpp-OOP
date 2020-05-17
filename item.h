@@ -21,7 +21,7 @@ public:
     std::string  getTitle() const { return title; };
     std::string  getGenre() const { return genre; };
     int  getYear() const { return year; };
-    int  getProce() const { return price; };
+    int  getPrice() const { return price; };
 
     //SETTERS
     void  setItemType(std::string it) { item_type = it; };
