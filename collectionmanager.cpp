@@ -51,9 +51,8 @@ void CollectionManager::add_collection(){
     system("cls");
     if(user1.getCreatedCollections() >= user1.getMaxCollections()){
         std::cout << "Nie mozesz zalozyc nowej kolekcji, wykorzystujesz juz maksymalna ilosc kolekcji.\nMozesz modyfikowac " <<
-        "istniejace kolekcje.\n" << std::endl << "Nacisnij dowolny klawisz, aby wrocic do glownego menu:";
-        getch();
-        system("cls");
+        "istniejace kolekcje, lub usunac jedna z nich.\n" << std::endl;
+        exit_to_menu();
     }
     else{
         std::cout << "Jak chcesz nazwac kolekcje o nr " << user1.getCreatedCollections()+1 << "?: ";
@@ -587,7 +586,7 @@ void CollectionManager::save_to_file(){
     system("cls");
     std::fstream file;
     file.open("Kolekcja.txt", std::ios::out);
-    file << "U¿ytkownik: " << user1.getName() << " " << user1.getSurname() << std::endl;
+    file << "Uzytkownik: " << user1.getName() << " " << user1.getSurname() << std::endl << std::endl;
     for(int i = 0; i < user1.getCreatedCollections(); ++i ){
         file << "KOLEKCJA: " << user1.getUserCollection().at(i).getName() << std::endl << std::endl;
         file << "KSIAZKI: " << std::endl << std::endl;
@@ -648,7 +647,7 @@ void CollectionManager::manage(){
         std::cout << "6.  Szukaj przedmiotu w kolekcjach."; std::cout << std::setw(29) << "(nacisnij:  6)" << std::endl;
         std::cout << "7.  Zmodyfikuj przedmiot w kolekcji."; std::cout << std::setw(28) << "(nacisnij:  7)" << std::endl;
         std::cout << "8.  Pokaz statystyki przedmiotow."; std::cout << std::setw(31) << "(nacisnij:  8)" << std::endl;
-        std::cout << "9.  Usun przedmiot z kolekcji."; std::cout << std::setw(34) << "(nacisnij:  9)" << std::endl;
+        std::cout << "9.  Usun przedmiot z kolekcje."; std::cout << std::setw(34) << "(nacisnij:  9)" << std::endl;
         std::cout << "10. Usun kolekcji."; std::cout << std::setw(46) << "(nacisnij: 10)" << std::endl;
         std::cout << "11. Zapisz kolekcje do pliku."; std::cout << std::setw(35) << "(nacisnij: 11)" << std::endl;
         std::cout << "12. Zakoncz dzialanie programu."; std::cout << std::setw(33) << "(nacisnij: 12)" << std::endl << std::endl;
